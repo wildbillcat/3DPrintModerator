@@ -31,7 +31,9 @@ namespace _3DPrintModerator
         PRINTER_ENUM_ICON6 = 0x00200000,
         PRINTER_ENUM_ICON7 = 0x00400000,
         PRINTER_ENUM_ICON8 = 0x00800000,
-        PRINTER_ENUM_HIDE = 0x01000000
+        PRINTER_ENUM_HIDE = 0x01000000,
+        PRINTER_ENUM_CATEGORY_ALL = 0x02000000,
+        PRINTER_ENUM_CATEGORY_3D = 0x04000000
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
@@ -73,9 +75,6 @@ namespace _3DPrintModerator
 
     class Program
     {
-        [DllImport("User32.dll")]
-        public static extern int MessageBox(int h, string m, string c, int type);
-
         [DllImport("winspool.drv", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern bool EnumPrinters(PrinterEnumFlags Flags, string Name, uint Level, IntPtr pPrinterEnum, uint cbBuf, ref uint pcbNeeded, ref uint pcReturned);
 
@@ -114,28 +113,14 @@ namespace _3DPrintModerator
 
         static void Main(string[] args)
         {
-            // Create a local print server
-            /*
-            LocalPrintServer ps = new LocalPrintServer();
             
-            PrintQueueCollection myPrintQueues = ps.GetPrintQueues();
-            String printQueueNames = "My Print Queues:\n\n";
-            foreach (PrintQueue pq in myPrintQueues)
-            {
-                printQueueNames += "\t" + pq.Name + "\n";
-            }
-            Console.WriteLine(printQueueNames);
-
-            MessageBox(0, "API Message Box", "API Demo", 0);
-             */
-
-            PRINTER_INFO_2[] Orinters = enumPrinters(PrinterEnumFlags.PRINTER_ENUM_NAME);
+            PRINTER_INFO_2[] Orinters = enumPrinters((PrinterEnumFlags.PRINTER_ENUM_LOCAL | PrinterEnumFlags.PRINTER_ENUM_CATEGORY_3D));
+            Console.WriteLine("Printers: " + Orinters.Length);
             foreach (PRINTER_INFO_2 Printer in Orinters)
             {
                 Console.WriteLine(Printer.pPrinterName);
             }
 
-            //var printManager = Windows.Graphics.Printing.PrintManager.GetForCurrentView();
 
             Console.ReadLine();
         }
