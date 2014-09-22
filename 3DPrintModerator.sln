@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3DPrintModerator", "3DPrintModerator\3DPrintModerator.csproj", "{58407113-17E1-4D8C-A916-327656E91885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintSpoolerAPI", "PrintSpoolerAPI\PrintSpoolerAPI.csproj", "{D1981210-7093-455A-A036-C5BBEC3F4AE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{58407113-17E1-4D8C-A916-327656E91885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58407113-17E1-4D8C-A916-327656E91885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58407113-17E1-4D8C-A916-327656E91885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1981210-7093-455A-A036-C5BBEC3F4AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1981210-7093-455A-A036-C5BBEC3F4AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1981210-7093-455A-A036-C5BBEC3F4AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1981210-7093-455A-A036-C5BBEC3F4AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
